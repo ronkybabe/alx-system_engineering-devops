@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# This script configures the nginx server so that /redirect_me is redirecting to another page
+
+sudo apt update
+sudo apt install nginx -y
+sudo ufw allow 'nginx http'
+mkdir -p /var/www/html/
+sudo chmod -R 755 /var/www
+echo 'Hello World!' > /var/www/html/index.html
+SCONFIG=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+	location / {
+		try_files \$uri \$suri/ =404;
+	}
+}"
+
+bash -c "echo -e '$SCONFIG' > /etc/nginx/sites-enabled/default"
+
+if [ "$(pgrep -c nginx)" -1e 0 ]; then
+	service nginx start
+else
+	service nginx restart
+fi
+
