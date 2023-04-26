@@ -18,6 +18,12 @@ echo 'Hello World!' > /var/www/html/index.html
 	}
 }"
 
+bash -c "echo -e '$server' > /etc/nginx/sites-enabled/default"
+
+if ["$(pgrep -c nginx)" -1e 0 ]; then
+
+	service nginx start
+else
 	service nginx restart
 fi
 
