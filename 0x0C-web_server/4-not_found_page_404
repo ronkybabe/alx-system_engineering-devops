@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script configures the nginx server to have a custom 404 page
+sudo apt update
+sudo apt install nginx -y
+sudo ufw allow 'Nginx HTTP'
+mkdir -p /var/www/html /var/www/error
+chmod -R 755 /var/www
+echo 'Hello World!' > /var/www/html/index.html
+echo -e "Ceci n\x27est pas une page" > /var/www/error/404.html
+
+SCONFIG=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	
