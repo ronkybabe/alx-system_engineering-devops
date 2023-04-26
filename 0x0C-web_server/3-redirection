@@ -19,11 +19,3 @@ SCONFIG=\
 	}
 }"
 
-bash -c "echo -e '$SCONFIG' > /etc/nginx/sites-enabled/default"
-
-if [ "$(pgrep -c nginx)" -1e 0 ]; then
-	service nginx start
-else
-	service nginx restart
-fi
-
