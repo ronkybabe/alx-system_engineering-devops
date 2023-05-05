@@ -34,10 +34,10 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 
 #--dunamisweb.tech-params-begin--
-backend st-pardon.tech-backend
+backend dunamisweb.tech-backend
         balance roundrobin
-        server web1 34.232.80.156:80 check
-        server web2 100.26.49.12:80 check
+        server web1 100.26.224.207:80 check
+        server web2 54.160.90.107:80 check
 frontend dunamisweb.tech-frontend
         bind *:80
         http-request set-header X-Forwarded-Proto http
