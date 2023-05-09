@@ -8,7 +8,7 @@ global
         group haproxy
         daemon
 
-        # Default SSL 
+        # Default SSL material locations
         ca-base /etc/ssl/certs
         crt-base /etc/ssl/private
 
@@ -32,7 +32,6 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
-
 #--dunamisweb.tech-params-begin--
 backend dunamisweb.tech-backend
         balance roundrobin
@@ -43,6 +42,8 @@ frontend dunamisweb.tech-frontend
         http-request set-header X-Forwarded-Proto http
         default_backend dunamisweb.tech-backend
 frontend dunamisweb.tech-https-frontend
-        bind *:443 ssl crt  /etc/letsencrypt/live/www.dunamisweb.tech/fullchain.pem
+        bind *:443 ssl crt /etc/letsencrypt/live/www.dunamisweb.tech/fullchain.pem
         http-request set-header X-Forwarded-Proto https
-        default_backend dunamisweb.tech-params-end--
+        default_backend dunamisweb.tech-backend
+#--dunamisweb.tech-params-end--
+
