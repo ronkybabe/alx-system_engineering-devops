@@ -4,11 +4,9 @@ Queries the Reddit API and returns the number of subscribers for a given subredd
 """
 import requests
 
-
 BASE_URL = 'https://www.reddit.com'
 '''Reddit's base API URL.
 '''
-
 
 def number_of_subscribers(subreddit):
     '''Queries the Reddit API and returns the number of subscribers in a given subreddit.
