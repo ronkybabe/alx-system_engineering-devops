@@ -3,11 +3,9 @@
 '''
 import requests
 
-
 URL = 'https://www.reddit.com'
 '''Reddit's API URL.
 '''
-
 
 def recurse(subreddit, hot_list=[], n=0, after=None):
     '''Retrieves a list of hot posts from a given subreddit.
