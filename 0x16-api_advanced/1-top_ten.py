@@ -3,11 +3,9 @@
 '''
 import requests
 
-
 URL = 'https://www.reddit.com'
 '''Reddit's API URL.
 '''
-
 
 def top_ten(subreddit):
     '''Retrieves the title of the top ten posts from a subreddit.
