@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Queries the Reddit API, parses the title of all articles, and prints a sorted count of given keywords.
+'''Queries the Reddit API, parses the title of all articles, and prints a sorted count of keywords.
 '''
 import requests
 
