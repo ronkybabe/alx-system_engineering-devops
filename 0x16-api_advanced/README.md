@@ -3,3 +3,6 @@
 #Scripting
 #Back-end
 #API
+
+#API GUIDE
+#REQUEST URL FORMAT:
